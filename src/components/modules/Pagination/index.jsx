@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-import { getCoinList } from "../../../services/cryptoApi";
-
 import styles from "./Pagination.module.css";
 
 export const Pagination = ({ page, setPage }) => {
@@ -17,7 +13,7 @@ export const Pagination = ({ page, setPage }) => {
   return (
     <div className={styles.container}>
       <button
-        className={styles.disabled}
+        className={styles.off}
         onClick={previousHandler}
         disabled={page === 1}
       >
@@ -35,7 +31,8 @@ export const Pagination = ({ page, setPage }) => {
       <p className={page === 9 ? styles.selected : ""}>9</p>
       <p className={page === 10 ? styles.selected : ""}>10</p>
       <button
-        className={page === 10 ? styles.disabled : ""}
+        className={styles.off}
+        disabled={page === 10}
         onClick={nextHandler}
       >
         Next

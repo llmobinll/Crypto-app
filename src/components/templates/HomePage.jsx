@@ -27,8 +27,8 @@ export function Homepage() {
     const fetchData = async () => {
       try {
         const res = await fetch(getCoinList(page, currency));
-        const json = await res.json();
-        setCoins(json);
+        const data = await res.json();
+        setCoins(data);
 
         setIsLoading(false);
       } catch (error) {
