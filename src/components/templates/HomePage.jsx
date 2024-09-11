@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Search } from "../modules/Search";
 import { TableCoin } from "../modules/TableCoin";
 import { Pagination } from "../modules/Pagination";
-import { Chart } from "../modules/Chart";
+import { Modal } from "../modules/Chart";
 
 import { getCoinList } from "../../services/cryptoApi";
 
@@ -54,7 +54,7 @@ export function Homepage() {
         element={element}
       />
       <Pagination page={page} setPage={setPage} />
-      {!!chart && <Chart chart={chart} setChart={setChart} />}
+      {!!chart && <Modal chart={chart} setChart={setChart} />}
     </div>
   );
 }

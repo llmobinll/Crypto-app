@@ -23,7 +23,7 @@
   text-align: center;
   border-radius: 5px;
 }
-.disabled {
+.disabled:disabled {
   opacity: 0.3;
 }
 .selected {

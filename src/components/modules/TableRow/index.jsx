@@ -49,7 +49,9 @@ export const TableRow = ({ coin, setChart, element }) => {
       <td>
         <img
           src={
-            price_change_percentage_24h > 0 ? "chart-up.svg" : "chart-down.svg"
+            Boolean(price_change_percentage_24h)
+              ? "chart-up.svg"
+              : "chart-down.svg"
           }
         />
       </td>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   CartesianGrid,
   LineChart,
@@ -14,7 +15,7 @@ import { convertData } from "../../../services/convertData";
 
 import styles from "./Chart.module.css";
 
-export const Chart = ({ chart, setChart }) => {
+export const Modal = ({ chart, setChart }) => {
   const [type, setType] = useState("prices");
 
   const typeHandler = (event) => {
@@ -36,7 +37,7 @@ export const Chart = ({ chart, setChart }) => {
           <p>{chart.coin.name}</p>
         </div>
         <div className={styles.graph}>
-          <ChartComponent data={convertData(chart, type)} type={type} />
+          <Chart data={convertData(chart, type)} type={type} />
         </div>
         <div className={styles.types} onClick={typeHandler}>
           <button className={type === "prices" ? styles.selected : null}>
@@ -68,7 +69,7 @@ export const Chart = ({ chart, setChart }) => {
   );
 };
 
-const ChartComponent = ({ data, type }) => {
+const Chart = ({ data, type }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart width={400} height={400} data={data}>
