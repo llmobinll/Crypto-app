@@ -4,9 +4,6 @@ export const Pagination = ({ page, setPage }) => {
   const previousHandler = () => setPage((page) => page - 1);
 
   const nextHandler = () => {
-    if (page >= 10) {
-      return;
-    }
     setPage((page) => page + 1);
   };
 

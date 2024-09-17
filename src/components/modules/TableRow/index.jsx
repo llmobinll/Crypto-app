@@ -17,7 +17,7 @@ export const TableRow = ({ coin, setChart, element }) => {
       const res = await fetch(marketChart(id));
       const json = await res.json();
 
-      setChart({ ...json, coin: coin });
+      setChart({ ...json, coin });
     } catch (error) {
       setChart(null);
     }
@@ -49,9 +49,7 @@ export const TableRow = ({ coin, setChart, element }) => {
       <td>
         <img
           src={
-            Boolean(price_change_percentage_24h)
-              ? "chart-up.svg"
-              : "chart-down.svg"
+            price_change_percentage_24h > 0 ? "chart-up.svg" : "chart-down.svg"
           }
         />
       </td>

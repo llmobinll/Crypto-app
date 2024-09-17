@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 
 import { RotatingLines } from "react-loader-spinner";
 
-import { ToastContainer, toast } from "react-toastify";
-
 import { searchCoin } from "../../../services/cryptoApi";
 
 import styles from "./Search.module.css";
-
-import "react-toastify/dist/ReactToastify.css";
 
 export const Search = ({
   currency,
@@ -48,7 +44,7 @@ export const Search = ({
         }
       } catch (error) {
         if (error.name != "AbortError") {
-          // console.log(error_message);
+          console.log(error_message);
         }
       }
     };
@@ -61,7 +57,6 @@ export const Search = ({
 
   return (
     <>
-      <ToastContainer />
       <div className={styles.searchBox}>
         <input
           type="text"
@@ -85,10 +80,10 @@ export const Search = ({
               />
             )}
             <ul>
-              {coins.map((coin) => (
-                <li key={coin.id}>
-                  <img src={coin.thumb} alt={coin.name} />
-                  <p>{coin.name}</p>
+              {coins.map(({ id, thumb, name }) => (
+                <li key={id}>
+                  <img src={thumb} alt={name} />
+                  <p>{name}</p>
                 </li>
               ))}
             </ul>
