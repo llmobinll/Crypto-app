@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+
 import { Search } from "../modules/Search";
 import { TableCoin } from "../modules/TableCoin";
 import { Pagination } from "../modules/Pagination";
@@ -7,11 +9,9 @@ import { Modal } from "../modules/Chart";
 
 import { getCoinList } from "../../services/cryptoApi";
 
-const CURRENCY_SYMBOL = {
-  usd: "$",
-  eur: "€",
-  jpy: "¥",
-};
+import { CURRENCY_SYMBOL } from "../../services/currencySymbol";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export function Homepage() {
   const [coins, setCoins] = useState([]);
@@ -32,7 +32,7 @@ export function Homepage() {
 
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log();
       }
     };
     fetchData();
@@ -40,6 +40,7 @@ export function Homepage() {
 
   return (
     <div>
+      <ToastContainer />
       <Search
         currency={currency}
         setCurrency={setCurrency}

@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 
 import { RotatingLines } from "react-loader-spinner";
 
+import { ToastContainer, toast } from "react-toastify";
+
 import { searchCoin } from "../../../services/cryptoApi";
+
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./Search.module.css";
 
@@ -36,15 +40,18 @@ export const Search = ({
         });
         const data = await res.json();
         setIsLoading(false);
-
-        if (data.coins) {
-          setCoins(data.coins);
-        } else {
-          alert(data.status.error_message);
-        }
+        setCoins(data.coins);
       } catch (error) {
         if (error.name != "AbortError") {
-          console.log(error_message);
+          toast.error(error.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       }
     };
@@ -57,6 +64,7 @@ export const Search = ({
 
   return (
     <>
+      <ToastContainer />
       <div className={styles.searchBox}>
         <input
           type="text"
