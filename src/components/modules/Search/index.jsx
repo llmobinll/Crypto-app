@@ -6,16 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { searchCoin } from "../../../services/cryptoApi";
 
+import { CURRENCY_SYMBOL } from "../../../services/currencySymbol";
+
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./Search.module.css";
 
-export const Search = ({
-  currency,
-  setCurrency,
-  setElement,
-  CURRENCY_SYMBOL,
-}) => {
+export const Search = ({ currency, setCurrency, setElement }) => {
   const [text, setText] = useState("");
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
