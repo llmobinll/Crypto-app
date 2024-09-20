@@ -1,0 +1,22 @@
+.symbol {
+  display: flex;
+  align-items: center;
+}
+
+.symbol img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.symbol span {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #9fa6b7;
+}
+.success {
+  color: #57bc7c;
+}
+.field {
+  color: #d33636;
+}
